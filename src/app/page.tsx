@@ -313,7 +313,7 @@ export default function NumPhoto10thFullPage() {
             </h3>
             <div className="js-reveal text-base-content/70 space-y-12 text-sm md:text-base leading-[2.4] text-left md:text-center italic max-w-2xl mx-auto">
               <p>株式会社ナムフォトは、10周年を迎えました。</p>
-              <p>私たちは「写真心理学」という独自のメソッドを通じて、<br className="hidden md:block" />目に見えない「心の解像度」を上げるお手伝いをしてきました。</p>
+              <p>私たちは「写真心理学」という独自のメソッドを通じて、<br className="hidden md:block" />言葉になる前の「心の解像度」を上げるサポートをしてきました。</p>
               <p className="font-bold text-base-content not-italic mt-16 text-lg tracking-[0.2em] border-t border-base-200 pt-12">
                 VISION: 写真の力で、アイが巡るセカイをつくろう。
               </p>
@@ -327,10 +327,10 @@ export default function NumPhoto10thFullPage() {
             <div className="js-reveal">
               <span className="text-[10px] font-bold text-base-content/30 mb-6 block tracking-widest uppercase font-sans">Logic 01</span>
               <h3 className="text-xl md:text-2xl font-light mb-8 border-l border-base-content pl-6 leading-relaxed">
-                氷山の「水面下」にある<br />前提のズレを可視化する。
+                潜在的な価値観や解釈を可視化する、<br />写真心理学
               </h3>
               <p className="text-base-content/60 text-sm leading-[2.4]">
-                仕事の摩擦は、表面的なスキルの問題ではなく、その下にある「個別の解釈（見ている景色）」の違いから生まれます。写真心理学はこれを写し出し、対話の土台を築きます。
+                コミュニケーションエラーは、表面的なスキルの問題ではなく、「個別の解釈の違い」から生まれます。同じものを見ていても、捉え方は人それぞれ。写真心理学はこの特徴を分析し、組織における対話のカルチャーを醸成します。
               </p>
             </div>
 
@@ -344,6 +344,84 @@ export default function NumPhoto10thFullPage() {
                 <text x="160" y="208" textAnchor="middle" fontSize="12" fill="currentColor" className="text-base-content/60 font-sans">価値観・解釈の癖</text>
               </svg>
             </div>
+          </div>
+        </section>
+
+        {/* Logic 02: CQ発達5段階 */}
+        <section className="py-32 px-8 md:px-24 bg-base-100 border-b border-base-200">
+          <div className="max-w-6xl mx-auto">
+
+            <div className="mb-16 js-reveal">
+              <span className="text-[10px] font-bold text-base-content/30 mb-3 block tracking-widest uppercase font-sans">Logic 02</span>
+              <h3 className="text-xl md:text-2xl font-light border-l border-base-content pl-6 leading-relaxed">
+                お互いの違いを「力」に変える、<br />CQの発達5段階
+              </h3>
+            </div>
+
+            {/* 2カラム表 */}
+            <div className="js-reveal overflow-x-auto">
+              <div className="min-w-[360px] space-y-3">
+
+                {/* パワーグループ (Level 4-5) */}
+                <div className="flex gap-[2px]">
+                  <div className="w-28 shrink-0 bg-[#FCFFD6] flex items-center justify-center px-3 py-6 rounded-sm">
+                    <p className="text-base font-bold text-stone-600 text-center leading-[1.9]">
+                      違い＝<br />パワー
+                    </p>
+                  </div>
+                  <div className="flex-1 flex flex-col gap-[2px]">
+                    {/* Level 5 */}
+                    <div className="bg-[#F4FF80] px-6 py-5">
+                      <p className="text-[10px] font-mono tracking-widest text-stone-500/70 mb-2">Level.5</p>
+                      <p className="text-base font-bold text-stone-800 mb-2">違いとの共創</p>
+                      <p className="text-sm text-stone-600 leading-[1.85]">対立や葛藤を当たり前とし、調整や協力に努める</p>
+                    </div>
+                    {/* Level 4 */}
+                    <div className="bg-[#FCFFD6] px-6 py-5">
+                      <p className="text-[10px] font-mono tracking-widest text-stone-400/70 mb-2">Level.4</p>
+                      <p className="text-base font-bold text-stone-700 mb-2">違いを相対化</p>
+                      <p className="text-sm text-stone-500 leading-[1.85]">相手のロジック理解に努め、否定的な判断を保留</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* コストグループ (Level 1-3) */}
+                <div className="flex gap-[2px]">
+                  <div className="w-28 shrink-0 bg-[#e8eaed] flex items-center justify-center px-3 py-6 rounded-sm">
+                    <p className="text-base font-bold text-stone-500 text-center leading-[1.9]">
+                      違い＝<br />コスト
+                    </p>
+                  </div>
+                  <div className="flex-1 flex flex-col gap-[2px]">
+                    {/* Level 3 */}
+                    <div className="bg-[#e8eaed] px-6 py-5">
+                      <p className="text-[10px] font-mono tracking-widest text-stone-400/70 mb-2">Level.3</p>
+                      <p className="text-base font-bold text-stone-600 mb-2">違いの最小化</p>
+                      <p className="text-sm text-stone-500 leading-[1.85]">&ldquo;共通点&rdquo;に着目し、対立を避ける</p>
+                    </div>
+                    {/* Level 2 */}
+                    <div className="bg-[#b0b8c4] px-6 py-5">
+                      <p className="text-[10px] font-mono tracking-widest text-white/60 mb-2">Level.2</p>
+                      <p className="text-base font-bold text-white mb-2">違いへの二極化</p>
+                      <p className="text-sm text-white/80 leading-[1.85]">「私が正しい、相手は悪い」「私は間違ってて、相手が正しい」</p>
+                    </div>
+                    {/* Level 1 */}
+                    <div className="bg-[#7e8898] px-6 py-5">
+                      <p className="text-[10px] font-mono tracking-widest text-white/60 mb-2">Level.1</p>
+                      <p className="text-base font-bold text-white mb-2">違いへの無知無関心</p>
+                      <p className="text-sm text-white/80 leading-[1.85]">自分と属性が違う人には興味がない</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <p className="text-[9px] text-base-content/30 text-right mt-12 font-sans tracking-wide leading-relaxed">
+              CQ: Cultural Intelligence 文化の知能指数<br />
+              出典：強い組織は違いを楽しむ　CQが切り拓く組織文化
+            </p>
+
           </div>
         </section>
 
@@ -403,12 +481,12 @@ export default function NumPhoto10thFullPage() {
                 撮影者の価値観や創造性タイプを診断します。
               </p>
               <p className="text-sm text-base-content/60 leading-[2.4] mb-8">
-                研修プログラムは重たいな...<br />
+                もっと楽しい研修を実施したい...<br />
                 そんなチームや現場でも、アプリを使えば気軽に写真心理学を利用することができます。
               </p>
               <ul className="text-sm text-base-content/70 space-y-2 leading-relaxed">
-                <li>・チームの1on1や雇用ツールとして</li>
-                <li>・他の研修のアイスブレイクとして</li>
+                <li>・チームの1on1や懇親ツールとして</li>
+                <li>・研修の一部や、アイスブレイクとして</li>
               </ul>
             </div>
 
