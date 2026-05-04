@@ -1,0 +1,110 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  /* 游ゴシックを最優先に。MacとWindows両方の指定を入れます */
+  --font-sans: "Yu Gothic", "YuGothic", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+}
+
+@plugin "daisyui/theme" {
+  name: "numphoto-theme";
+  default: true;
+  /* ...（以前の色設定） */
+}
+
+/* 文字をより美しく、細く見せるためのグローバル設定 */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 300; /* 全体的に少し細めにする */
+}
+
+@plugin "daisyui/theme" {
+  name: "numphoto-theme";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+
+  /* ベースカラー：美術館のような静かな白 */
+  --color-base-100: #fafafa;
+  --color-base-200: #f3f4f6;
+  --color-base-300: #e5e7eb;
+  --color-base-content: #1a1a1a; /* 墨色 */
+
+  /* プライマリー：直感と閃きのイエロー */
+  --color-primary: #eafc23;
+  --color-primary-content: #1a1a1a;
+
+  /* セカンダリー：信頼感のあるブルー */
+  --color-secondary: #5977bc;
+  --color-secondary-content: #ffffff;
+
+  /* アクセント：空や開放感を感じさせるライトブルー */
+  --color-accent: #bfdbfe;
+  --color-accent-content: #1a1a1a;
+
+  /* ニュートラル：基本の墨色。フォーカス時にイエローへ */
+  --color-neutral: #1a1a1a;
+  --color-neutral-content: #ffffff;
+  
+  /* daisyUI v4のフォーカスリングや特定状態の色指定 */
+  --focus-color: #eafc23;
+
+  /* 情報・成功・警告・エラー */
+  --color-info: #ede1f6;
+  --color-info-content: #0f3384;
+  --color-success: #3b82f6;
+  --color-success-content: #ffffff;
+  --color-warning: oklch(64% 0.222 41.116);
+  --color-error: oklch(58% 0.253 17.585);
+
+  /* デザインの質感：角丸を少し持たせつつ、シャドウを消してフラットに */
+  --radius-selector: 0.5rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+  --border: 1px;
+  --depth: 0; /* フラットデザイン */
+}
+
+/* カスタムクラス：neutralボタンのホバー時にプライマリー色にする指定 */
+/* app/globals.css */
+
+/* app/globals.css */
+
+@layer components {
+    /* 閃光のアニメーション本体 */
+    @keyframes flash-shimmer {
+      0% {
+        background-color: #eafc23;
+        opacity: 0;
+        transform: scaleX(0); /* 横に広がる動きを追加 */
+      }
+      20% {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scaleX(1);
+      }
+    }
+  
+    .nav-link-container {
+      position: relative;
+      overflow: hidden;
+    }
+  
+    .flash-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-color: #eafc23;
+      opacity: 0;
+    }
+  
+    /* ホバーした瞬間、子要素の flash-layer をアニメーションさせる */
+    .group:hover .flash-layer {
+      animation: flash-shimmer 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+  }
