@@ -245,12 +245,12 @@ export default function NumPhoto10thFullPage() {
             ))}
             
             <div className="group nav-link-container ml-4 border border-base-content">
-              <div className="flash-layer"></div>
-              <a 
-                href="#contact" 
-                className="relative z-10 px-6 py-2.5 text-[10px] tracking-[0.2em] font-bold block transition-colors duration-100 group-hover:text-base-100 group-hover:bg-base-content delay-300"
+              <div className="submit-flash-layer" />
+              <a
+                href="/contact"
+                className="relative z-10 px-6 py-2.5 text-[10px] tracking-[0.2em] font-bold block group-hover:bg-primary"
               >
-                お問い合わせ
+                <span className="submit-btn-label">お問い合わせ</span>
               </a>
             </div>
           </nav>
@@ -474,7 +474,13 @@ export default function NumPhoto10thFullPage() {
               ))}
             </div>
             
-            <div className="mt-16 text-center js-reveal">
+            <div className="mt-16 js-reveal flex flex-col sm:flex-row items-start sm:items-center gap-8">
+              <div className="group nav-link-container border border-base-content shrink-0">
+                <div className="submit-flash-layer" />
+                <a href="/contact" className="relative z-10 px-8 py-4 text-sm tracking-[0.15em] font-medium block group-hover:bg-primary">
+                  <span className="submit-btn-label">研修について無料相談する →</span>
+                </a>
+              </div>
               <p className="text-sm text-base-content/40 font-light italic font-sans">
                 ※人数や時間に応じて、基本プログラムをカスタマイズします
               </p>
@@ -501,14 +507,17 @@ export default function NumPhoto10thFullPage() {
                 <li>・チームの1on1や懇親ツールとして</li>
                 <li>・研修の一部や、アイスブレイクとして</li>
               </ul>
-              <a
-                href="https://app.numphoto.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-primary text-primary-content text-sm font-bold tracking-[0.2em] px-10 py-4 rounded-full hover:opacity-80 transition-opacity"
-              >
-                無料診断を試す →
-              </a>
+              <div className="group nav-link-container inline-block border border-base-content">
+                <div className="submit-flash-layer" />
+                <a
+                  href="https://app.numphoto.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative z-10 px-10 py-4 text-sm font-bold tracking-[0.2em] block group-hover:bg-primary"
+                >
+                  <span className="submit-btn-label">無料診断を試す →</span>
+                </a>
+              </div>
             </div>
 
             {/* スマホモックアップ */}
@@ -523,6 +532,62 @@ export default function NumPhoto10thFullPage() {
                   className="w-full h-auto object-cover pt-7"
                 />
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 効果・数値 */}
+        <section className="py-32 px-8 md:px-24 bg-base-200/40 border-b border-base-200">
+          <div className="max-w-6xl mx-auto">
+            <div className="mb-16">
+              <span className="text-[10px] tracking-[0.4em] text-base-content/40 block mb-4 uppercase font-sans">Effect</span>
+              <h2 className="text-2xl md:text-3xl font-light tracking-[0.1em] mb-3">効果</h2>
+              <p className="text-base md:text-lg font-light text-base-content/60">写真心理学<sup>®</sup>を用いた対話プログラム体験者の変化</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-px bg-base-300">
+
+              {/* 個人の創造性 */}
+              <div className="bg-base-100 p-10 md:p-14 flex flex-col gap-10">
+                <p className="text-sm tracking-[0.2em] text-base-content/80 font-bold">個人の創造性</p>
+                <div className="bg-base-200/60 px-6 py-5 inline-flex items-end gap-1 leading-none self-start">
+                  <span className="text-7xl md:text-8xl font-thin tracking-tight" style={{WebkitTextStroke: '1.5px var(--color-base-content)', color: 'transparent'}}>+17.1</span>
+                  <span className="text-3xl font-light mb-2">%</span>
+                </div>
+                <div>
+                  <p className="text-xs tracking-[0.2em] text-base-content/40 mb-3 uppercase">診断項目</p>
+                  <div className="flex flex-wrap gap-x-5 gap-y-2">
+                    {['Willの解像度', '自分軸の明瞭性', 'アンテナ力', '問題提起力', '内省・内観力', '自己肯定感'].map((item) => (
+                      <span key={item} className="text-sm text-base-content/65">{item}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* チームの協力関係 */}
+              <div className="bg-base-100 p-10 md:p-14 flex flex-col gap-10">
+                <p className="text-sm tracking-[0.2em] text-base-content/80 font-bold">チームの協力関係</p>
+                <div className="bg-base-200/60 px-6 py-5 inline-flex items-end gap-1 leading-none self-start">
+                  <span className="text-7xl md:text-8xl font-thin tracking-tight" style={{WebkitTextStroke: '1.5px var(--color-base-content)', color: 'transparent'}}>+14.4</span>
+                  <span className="text-3xl font-light mb-2">%</span>
+                </div>
+                <div>
+                  <p className="text-xs tracking-[0.2em] text-base-content/40 mb-3 uppercase">診断項目</p>
+                  <div className="flex flex-wrap gap-x-5 gap-y-2">
+                    {['活気・活力', '貢献感', '他者受容', '心理的安全性', '相互尊敬'].map((item) => (
+                      <span key={item} className="text-sm text-base-content/65">{item}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div className="mt-12 flex justify-end">
+              <a href="#cases" className="group inline-flex items-center gap-2 text-sm tracking-[0.15em] text-base-content/50 hover:text-base-content transition-colors">
+                導入事例を見る
+                <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+              </a>
             </div>
           </div>
         </section>
@@ -568,6 +633,21 @@ export default function NumPhoto10thFullPage() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-16 pt-16 border-t border-base-200 js-reveal flex flex-col sm:flex-row gap-4">
+              <div className="group nav-link-container border border-base-content">
+                <div className="submit-flash-layer" />
+                <a href="/contact" className="relative z-10 px-8 py-4 text-sm tracking-[0.15em] font-medium block group-hover:bg-primary">
+                  <span className="submit-btn-label">お問い合わせ →</span>
+                </a>
+              </div>
+              <div className="group nav-link-container border border-base-300">
+                <div className="submit-flash-layer" />
+                <a href="/contact" className="relative z-10 px-8 py-4 text-sm tracking-[0.15em] font-medium block text-base-content/60 group-hover:bg-primary">
+                  <span className="submit-btn-label">資料を請求する →</span>
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -639,7 +719,7 @@ export default function NumPhoto10thFullPage() {
 
             {/* ブランド名の由来 */}
             <div className="js-reveal mb-14 pl-6 border-l-2 border-primary">
-              <p className="text-[10px] tracking-[0.3em] text-base-content/40 mb-3 font-sans uppercase">About the Name</p>
+              
               <p className="text-sm md:text-base leading-[2.6] text-base-content/80">
                 ナムフォトとは、南無阿弥陀仏の「ナム」＋「フォト（写真）」から成り、<br className="hidden md:block" />
                 「写真を心の拠り所として生きていきます」という意味があります。
@@ -694,18 +774,58 @@ export default function NumPhoto10thFullPage() {
               </div>
             </div>
 
+            <div className="mt-14 js-reveal">
+              <a href="/about" className="group inline-flex items-center gap-2 text-sm tracking-[0.15em] text-base-content/50 hover:text-base-content transition-colors border-b border-base-content/20 pb-0.5 hover:border-base-content">
+                会社紹介をもっと見る
+                <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+              </a>
+            </div>
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="py-32 text-center border-t border-base-200">
-          <div className="js-reveal">
-            <p className="text-[10px] tracking-[0.5em] text-base-content/30 mb-12 uppercase italic font-sans">Get in Touch</p>
-            <a href="mailto:info@numphoto.com" className="text-2xl md:text-5xl font-light hover:text-primary transition-colors underline-offset-[16px] underline decoration-base-200">
-              Let's talk about culture.
-            </a>
+        {/* CTA */}
+        <section className="border-t border-base-200">
+          <div className="grid md:grid-cols-2">
+
+            {/* お問い合わせ */}
+            <div className="js-reveal h-full">
+              <a href="/contact" className="group relative overflow-hidden h-full border-b md:border-b-0 md:border-r border-base-200 p-10 md:p-14 lg:p-20 flex flex-col justify-between gap-12 min-h-[320px] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(26,26,26,0.09)] transition-[transform,box-shadow] duration-300 ease-out">
+                <div className="cta-fill-layer" />
+                <div className="relative z-10 flex items-start justify-between">
+                  <p className="text-2xl md:text-3xl font-medium tracking-[0.04em]">お問い合わせ</p>
+                  <span className="text-2xl mt-1">→</span>
+                </div>
+                <div className="relative z-10 space-y-4">
+                  <p className="text-xl md:text-2xl font-light tracking-[0.04em]">無料で見積もり・相談する</p>
+                  <p className="text-base leading-[2.0] text-base-content/70">
+                    チームや組織のご状況、課題などに応じて<br />無料でご相談・お見積りをいたします。
+                  </p>
+                </div>
+              </a>
+            </div>
+
+            {/* サービス紹介資料 */}
+            <div className="js-reveal h-full">
+              <a href="/contact" className="group relative overflow-hidden h-full bg-base-200/30 p-10 md:p-14 lg:p-20 flex flex-col justify-between gap-12 min-h-[320px] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(26,26,26,0.09)] transition-[transform,box-shadow] duration-300 ease-out">
+                <div className="cta-fill-layer" />
+                <div className="relative z-10 flex items-start justify-between">
+                  <p className="text-2xl md:text-3xl font-medium tracking-[0.04em]">サービス紹介資料</p>
+                  <span className="text-2xl mt-1">→</span>
+                </div>
+                <div className="relative z-10 space-y-4">
+                  <p className="text-xl md:text-2xl font-light tracking-[0.04em]">研修プログラムの詳細資料を請求する</p>
+                  <p className="text-base leading-[2.0] text-base-content/70">
+                    写真心理学プログラムの詳細資料をご用意しています。<br />心理学のフレームワークも多数掲載しています。
+                  </p>
+                </div>
+              </a>
+            </div>
+
           </div>
-          <div className="mt-24 text-[9px] text-base-content/30 tracking-[0.3em] uppercase font-sans">
+        </section>
+
+        <footer className="py-14 text-center border-t border-base-200">
+          <div className="text-[9px] text-base-content/30 tracking-[0.3em] uppercase font-sans">
             © 2026 numphoto Inc. 10th Anniversary
           </div>
         </footer>

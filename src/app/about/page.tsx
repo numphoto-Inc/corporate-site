@@ -7,7 +7,8 @@ const TABS = [
   { id: 'philosophy', label: '写真心理学とは' },
   { id: 'company', label: '会社概要' },
   { id: 'history', label: '沿革' },
-  { id: 'awards', label: '受賞歴' },
+  { id: 'awards', label: '受賞・採択歴' },
+  { id: 'press', label: '取材歴' },
 ] as const;
 
 type TabId = (typeof TABS)[number]['id'];
@@ -30,11 +31,21 @@ const HISTORY_ITEMS = [
   { year: '2010', desc: '地域創生ディレクターとしてまちづくりに従事。地域住民へ写真講座を提供' },
   { year: '2014', desc: '乳がんになって生き方と向き合い、アドラー心理学を100時間学ぶ' },
   { year: '2016', desc: '株式会社ナムフォトを設立' },
-  { year: '2020', desc: '写真心理学®を提唱' },
+  { year: '2020', desc: '写真心理学®を提唱　※写真心理学®は株式会社ナムフォトの登録商標です' },
   { year: '2025', desc: '心理学専門課程修了' },
 ] as const;
 
-const AWARDS_ITEMS = [
+const ACHIEVEMENTS_ITEMS = [
+  { year: '2005年', desc: '若手写真家登竜門コンクール「Canon 写真新世紀」入賞' },
+  { year: '2020年', desc: 'NTT DOCOMO Ventures「HUB/」' },
+  { year: '2023年', desc: '東京都女性ベンチャー成長促進事業「APT Women」第8期' },
+] as const;
+
+const PRESS_ITEMS = [
+  { date: '2024年9月4日', text: 'ベンチャー.jp「撮った写真を「写真心理学®」で分析し、脳内の思考回路を見える化｜代表取締役 楢 侑子（株式会社ナムフォト）」', href: 'https://venture.jp/news/2024/09/04/11051/' },
+  { date: '2022年8月15日', text: '日経XTECH「写真にはたくさんの意味が込められている。感性や創造性を読み解く写真心理学とは？」', href: 'https://project.nikkeibp.co.jp/mirakoto/atcl/wellness/h_vol71/' },
+  { date: '2020年7月29日', text: '日経XTECH「NDVのスタートアップスタジオ「/HuB」第3期始動！ポストコロナをドライブする4社に話を聞いた」', href: 'https://special.nikkeibp.co.jp/atclh/NXT/20/nttdocomov0729_01/' },
+  { date: '2018年10月18日', text: 'greenz.jp「"わたし"を表現する怖れを越えて、喜びに届きますように。写真で乳がんを乗り越えた「ナムフォト」楢侑子さんが伝えたいこと」', href: 'https://greenz.jp/2018/10/18/people_narayuko/' },
   { date: '2018年3月6日', text: '新聞「富士ニュース」に掲載' },
   { date: '2018年1月10日', text: 'WEBメディア「ワコール ボディブック」インタビュー' },
   { date: '2017年12月31日・2018年1月7日', text: 'FMラジオ局 α-STATIONに出演（12/31 OA ／ 1/7 OA）' },
@@ -64,6 +75,7 @@ export default function AboutPage() {
   const companyRef  = useRef<HTMLElement>(null);
   const historyRef  = useRef<HTMLElement>(null);
   const awardsRef   = useRef<HTMLElement>(null);
+  const pressRef    = useRef<HTMLElement>(null);
 
   const sectionMap: Record<TabId, React.RefObject<HTMLElement | null>> = {
     about:      aboutRef,
@@ -71,6 +83,7 @@ export default function AboutPage() {
     company:    companyRef,
     history:    historyRef,
     awards:     awardsRef,
+    press:      pressRef,
   };
 
   useEffect(() => {
@@ -131,12 +144,12 @@ export default function AboutPage() {
               </div>
             ))}
             <div className="group nav-link-container ml-4 border border-base-content">
-              <div className="flash-layer" />
+              <div className="submit-flash-layer" />
               <a
-                href="mailto:info@numphoto.com"
-                className="relative z-10 px-6 py-2.5 text-[10px] tracking-[0.2em] font-bold block transition-colors duration-100 group-hover:text-base-100 group-hover:bg-base-content delay-300"
+                href="/contact"
+                className="relative z-10 px-6 py-2.5 text-[10px] tracking-[0.2em] font-bold block group-hover:bg-primary"
               >
-                お問い合わせ
+                <span className="submit-btn-label">お問い合わせ</span>
               </a>
             </div>
           </nav>
@@ -186,7 +199,7 @@ export default function AboutPage() {
         {/* ───────────────────────────────── */}
         {/* Section 1: ナムフォトについて       */}
         {/* ───────────────────────────────── */}
-        <section id="about" ref={aboutRef} className="py-24 px-6 md:px-12 lg:px-24 border-b border-base-200">
+        <section id="about" ref={aboutRef} className="scroll-mt-32 md:scroll-mt-36 py-24 px-6 md:px-12 lg:px-24 border-b border-base-200">
           <div className="max-w-6xl mx-auto">
             <span className="text-[10px] tracking-[0.4em] text-base-content/40 block mb-5 uppercase font-sans">About</span>
             <h2 className="text-2xl md:text-3xl font-light mb-16 tracking-[0.05em]">ナムフォトについて</h2>
@@ -269,7 +282,7 @@ export default function AboutPage() {
         {/* ───────────────────────────── */}
         {/* Section 2: 写真心理学とは      */}
         {/* ───────────────────────────── */}
-        <section id="philosophy" ref={philosophyRef} className="py-24 px-6 md:px-12 lg:px-24 border-b border-base-200">
+        <section id="philosophy" ref={philosophyRef} className="scroll-mt-32 md:scroll-mt-36 py-24 px-6 md:px-12 lg:px-24 border-b border-base-200">
           <div className="max-w-6xl mx-auto">
             <span className="text-[10px] tracking-[0.4em] text-base-content/40 block mb-5 uppercase font-sans">Philosophy</span>
             <h2 className="text-2xl md:text-3xl font-light mb-16 tracking-[0.05em]">写真心理学とは</h2>
@@ -299,43 +312,43 @@ export default function AboutPage() {
 
               {/* 右：図 */}
               <div>
-              <svg viewBox="0 0 390 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-sm mx-auto">
+              <svg viewBox="0 0 390 400" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-sm mx-auto text-base-content">
                 <defs>
                   <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
-                    <path d="M0,0.5 L0,5.5 L6,3 z" fill="#1a1a1a" />
+                    <path d="M0,0.5 L0,5.5 L6,3 z" fill="currentColor" />
                   </marker>
                 </defs>
 
                 {/* 外円：社会（右下にオフセット） */}
                 <circle cx="218" cy="228" r="172" fill="#b0b0b0" />
-                <text x="298" y="125" fontSize="15" fill="#1a1a1a" fontFamily="sans-serif" textAnchor="middle">社会</text>
+                <text x="298" y="125" fontSize="15" fill="currentColor" fontFamily="sans-serif" textAnchor="middle">社会</text>
 
                 {/* 私 */}
                 <circle cx="144" cy="208" r="52" fill="#d4d4d4" />
-                <text x="138" y="205" fontSize="13" fill="#1a1a1a" fontFamily="sans-serif" textAnchor="middle">私</text>
+                <text x="138" y="205" fontSize="13" fill="currentColor" fontFamily="sans-serif" textAnchor="middle">私</text>
 
                 {/* 言葉 */}
                 <circle cx="177" cy="138" r="36" fill="#f0f0f0" />
-                <text x="175" y="135" fontSize="13" fill="#1a1a1a" fontFamily="sans-serif" textAnchor="middle">言葉</text>
+                <text x="175" y="135" fontSize="13" fill="currentColor" fontFamily="sans-serif" textAnchor="middle">言葉</text>
 
                 {/* 写真 */}
                 <circle cx="208" cy="204" r="36" fill="#fafafa" />
-                <text x="208" y="208" fontSize="13" fill="#1a1a1a" fontFamily="sans-serif" textAnchor="middle">写真</text>
+                <text x="208" y="208" fontSize="13" fill="currentColor" fontFamily="sans-serif" textAnchor="middle">写真</text>
 
                 {/* 三角形：●は各円の中心（私・言葉・写真）を指す */}
-                <line x1="150" y1="188" x2="177" y2="155" stroke="#1a1a1a" strokeWidth="0.9" />
-                <line x1="177" y1="155" x2="202" y2="190" stroke="#1a1a1a" strokeWidth="0.9" />
-                <line x1="202" y1="190" x2="150" y2="188" stroke="#1a1a1a" strokeWidth="0.9" />
-                <circle cx="150" cy="188" r="2.8" fill="#1a1a1a" />
-                <circle cx="177" cy="155" r="2.8" fill="#1a1a1a" />
-                <circle cx="202" cy="190" r="2.8" fill="#1a1a1a" />
+                <line x1="150" y1="188" x2="177" y2="155" stroke="currentColor" strokeWidth="0.9" />
+                <line x1="177" y1="155" x2="202" y2="190" stroke="currentColor" strokeWidth="0.9" />
+                <line x1="202" y1="190" x2="150" y2="188" stroke="currentColor" strokeWidth="0.9" />
+                <circle cx="150" cy="188" r="2.8" fill="currentColor" />
+                <circle cx="177" cy="155" r="2.8" fill="currentColor" />
+                <circle cx="202" cy="190" r="2.8" fill="currentColor" />
 
                 {/* Aさん */}
                 <circle cx="295" cy="292" r="56" fill="#c4c4c4" />
-                <text x="295" y="296" fontSize="13" fill="#1a1a1a" fontFamily="sans-serif" textAnchor="middle">Aさん</text>
+                <text x="295" y="296" fontSize="13" fill="currentColor" fontFamily="sans-serif" textAnchor="middle">Aさん</text>
 
                 {/* 矢印：クラスター → Aさん */}
-                <line x1="222" y1="232" x2="256" y2="262" stroke="#1a1a1a" strokeWidth="0.9" markerEnd="url(#arr)" />
+                <line x1="222" y1="232" x2="256" y2="262" stroke="currentColor" strokeWidth="0.9" markerEnd="url(#arr)" />
               </svg>
               </div>
             </div>
@@ -360,7 +373,7 @@ export default function AboutPage() {
               <div className="min-w-[560px] flex gap-4 items-stretch">
 
                 {/* 左側：2段 */}
-                <div className="flex flex-col gap-3 flex-1">
+                <div className="flex flex-col gap-3 w-[65%] shrink-0">
 
                   {/* 私（外枠）＋ 3ステップ（内包） */}
                   <div className="border border-base-300 bg-base-100 px-4 pt-4 pb-4">
@@ -371,7 +384,7 @@ export default function AboutPage() {
                         { step: '2.理解 判断', sub: '脳', quote: '「写真撮ろう」' },
                         { step: '3.表現 実行', sub: '運動神経系', quote: 'シャッターを押す' },
                       ].map((item) => (
-                        <div key={item.step} className="border border-base-300 bg-base-200 px-4 py-4 flex flex-col gap-3">
+                        <div key={item.step} className="border border-base-300 bg-base-200 px-4 py-4 flex flex-col items-center text-center gap-3">
                           <p className="text-[11px] text-base-content/50 tracking-wide">{item.step}</p>
                           <p className="text-sm font-medium">{item.sub}</p>
                           <p className="text-xs text-base-content/50">{item.quote}</p>
@@ -393,13 +406,11 @@ export default function AboutPage() {
                 <div className="flex items-center text-base-content/30 text-lg shrink-0">▶</div>
 
                 {/* 右側：写真心理学診断 */}
-                <div className="border border-base-300 bg-base-100 px-7 py-6 flex flex-col justify-center gap-4 w-48 shrink-0">
-                  <p className="text-sm font-bold tracking-[0.2em] text-center">写真心理学<span className="align-super text-[8px]">®</span>診断</p>
-                  <div>
-                    <p className="text-sm font-bold leading-snug mb-4">
-                      定量分析<br />-14項目-
-                    </p>
-                    <div className="space-y-1.5 text-[11px] text-base-content/55">
+                <div className="border border-base-300 bg-base-100 px-7 py-6 flex flex-col items-center justify-center text-center gap-4 flex-1">
+                  <p className="text-sm font-bold tracking-[0.2em]">写真心理学<span className="align-super text-[8px]">®</span>診断</p>
+                  <div className="space-y-3 w-full">
+                    <p className="text-sm font-bold">定量分析 -14項目-</p>
+                    <div className="space-y-1.5 text-sm text-base-content/55">
                       <p>WHY：撮影動機</p>
                       <p>HOW：撮り方の特徴</p>
                       <p>WHAT：被写体の特徴</p>
@@ -434,7 +445,7 @@ export default function AboutPage() {
         {/* ─────────────── */}
         {/* Section 3: 会社概要 */}
         {/* ─────────────── */}
-        <section id="company" ref={companyRef} className="py-24 px-6 md:px-12 lg:px-24 border-b border-base-200">
+        <section id="company" ref={companyRef} className="scroll-mt-32 md:scroll-mt-36 py-24 px-6 md:px-12 lg:px-24 border-b border-base-200">
           <div className="max-w-6xl mx-auto">
             <span className="text-[10px] tracking-[0.4em] text-base-content/40 block mb-5 uppercase font-sans">Company</span>
             <h2 className="text-2xl md:text-3xl font-light mb-16 tracking-[0.05em]">会社概要</h2>
@@ -454,7 +465,7 @@ export default function AboutPage() {
         {/* ──────────── */}
         {/* Section 4: 沿革 */}
         {/* ──────────── */}
-        <section id="history" ref={historyRef} className="py-24 px-6 md:px-12 lg:px-24 bg-base-200/30 border-b border-base-200">
+        <section id="history" ref={historyRef} className="scroll-mt-32 md:scroll-mt-36 py-24 px-6 md:px-12 lg:px-24 bg-base-200/30 border-b border-base-200">
           <div className="max-w-6xl mx-auto">
             <span className="text-[10px] tracking-[0.4em] text-base-content/40 block mb-5 uppercase font-sans">History</span>
             <h2 className="text-2xl md:text-3xl font-light mb-16 tracking-[0.05em]">沿革</h2>
@@ -478,18 +489,42 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ──────────────── */}
-        {/* Section 5: 受賞歴 */}
-        {/* ──────────────── */}
-        <section id="awards" ref={awardsRef} className="py-24 px-6 md:px-12 lg:px-24 border-b border-base-200">
-          <div className="max-w-4xl mx-auto">
-            <span className="text-[10px] tracking-[0.4em] text-base-content/40 block mb-5 uppercase font-sans">Press &amp; Awards</span>
-            <h2 className="text-2xl md:text-3xl font-light mb-16 tracking-[0.05em]">受賞・掲載歴</h2>
+        {/* ────────────────── */}
+        {/* Section 5: 受賞・採択歴 */}
+        {/* ────────────────── */}
+        <section id="awards" ref={awardsRef} className="scroll-mt-32 md:scroll-mt-36 py-24 px-6 md:px-12 lg:px-24 border-b border-base-200">
+          <div className="max-w-6xl mx-auto">
+            <span className="text-[10px] tracking-[0.4em] text-base-content/40 block mb-5 uppercase font-sans">Awards</span>
+            <h2 className="text-2xl md:text-3xl font-light mb-16 tracking-[0.05em]">受賞・採択歴</h2>
             <dl className="divide-y divide-base-200">
-              {AWARDS_ITEMS.map((item, i) => (
+              {ACHIEVEMENTS_ITEMS.map((item, i) => (
+                <div key={i} className="grid grid-cols-1 md:grid-cols-[160px_1fr] py-7 gap-1.5 md:gap-8 items-baseline">
+                  <dt className="text-[11px] font-mono text-base-content/40 tracking-wider">{item.year}</dt>
+                  <dd className="text-sm text-base-content/70 leading-[1.9]">{item.desc}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+
+        {/* ──────────── */}
+        {/* Section 6: 取材歴 */}
+        {/* ──────────── */}
+        <section id="press" ref={pressRef} className="scroll-mt-32 md:scroll-mt-36 py-24 px-6 md:px-12 lg:px-24 bg-base-200/30 border-b border-base-200">
+          <div className="max-w-6xl mx-auto">
+            <span className="text-[10px] tracking-[0.4em] text-base-content/40 block mb-5 uppercase font-sans">Press</span>
+            <h2 className="text-2xl md:text-3xl font-light mb-16 tracking-[0.05em]">取材歴</h2>
+            <dl className="divide-y divide-base-200">
+              {PRESS_ITEMS.map((item, i) => (
                 <div key={i} className="grid grid-cols-1 md:grid-cols-[220px_1fr] py-7 gap-1.5 md:gap-8 items-baseline">
                   <dt className="text-[11px] font-mono text-base-content/40 tracking-wider">{item.date}</dt>
-                  <dd className="text-sm text-base-content/70 leading-[1.9]">{item.text}</dd>
+                  <dd className="text-sm text-base-content/70 leading-[1.9]">
+                    {'href' in item ? (
+                      <a href={item.href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-base-content/20 hover:decoration-base-content transition-colors">
+                        {item.text}
+                      </a>
+                    ) : item.text}
+                  </dd>
                 </div>
               ))}
             </dl>
@@ -498,36 +533,44 @@ export default function AboutPage() {
 
         {/* ───── CTA ───── */}
         <section className="py-24 px-6 md:px-12 lg:px-24 bg-base-200/30">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-4 md:gap-6">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-4 md:gap-6">
+
+            {/* お問い合わせ */}
             <a
-              href="mailto:info@numphoto.com"
-              className="group border border-base-content p-8 flex items-center justify-between hover:bg-base-content hover:text-base-100 transition-colors duration-200"
+              href="/contact"
+              className="group border border-base-content p-8 md:p-10 flex flex-col justify-between gap-10 hover:bg-base-content hover:text-base-100 transition-colors duration-200"
             >
-              <span className="text-sm font-medium tracking-[0.12em]">お問い合わせ</span>
-              <span className="text-base group-hover:translate-x-1 transition-transform duration-200">→</span>
+              <div className="flex items-center justify-between">
+                <span className="text-sm tracking-[0.2em] font-medium">お問い合わせ</span>
+                <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+              </div>
+              <div className="space-y-5">
+                <p className="text-2xl md:text-3xl font-light tracking-[0.04em]">無料で見積もり・相談する</p>
+                <p className="text-sm text-base-content/50 group-hover:text-base-100/60 leading-[2.0] transition-colors duration-200">
+                  親しみやすくニュートラルな視点が強みです。<br />
+                  チームや組織のご状況、課題などに応じて<br />無料でご相談・お見積りをいたします。
+                </p>
+              </div>
             </a>
+
+            {/* サービス紹介資料 */}
             <a
-              href="/#service"
-              className="group border border-base-300 p-8 flex items-center justify-between hover:border-base-content transition-colors duration-200"
+              href="/contact"
+              className="group border border-base-300 bg-base-100 p-8 md:p-10 flex flex-col justify-between gap-10 hover:border-base-content transition-colors duration-200"
             >
-              <span className="text-sm font-medium tracking-[0.12em]">サービス紹介</span>
-              <span className="text-base group-hover:translate-x-1 transition-transform duration-200">→</span>
+              <div className="flex items-center justify-between">
+                <span className="text-sm tracking-[0.2em] font-medium text-base-content/60 group-hover:text-base-content transition-colors duration-200">サービス紹介資料</span>
+                <span className="text-base-content/40 group-hover:text-base-content group-hover:translate-x-1 transition-all duration-200">→</span>
+              </div>
+              <div className="space-y-5">
+                <p className="text-2xl md:text-3xl font-light tracking-[0.04em]">研修プログラムの詳細</p>
+                <p className="text-sm text-base-content/50 leading-[2.0]">
+                  写真心理学プログラムの詳細資料をご用意しています。<br />
+                  資料には心理学のフレームワークも<br />多数掲載しておりますのでご活用ください。
+                </p>
+              </div>
             </a>
-            <div className="border border-base-200 p-8 bg-base-100 space-y-3">
-              <p className="text-[10px] tracking-[0.3em] text-base-content/40 uppercase font-sans">Document</p>
-              <a
-                href="mailto:info@numphoto.com"
-                className="block text-sm font-medium hover:text-primary transition-colors"
-              >
-                無料で見積もり・相談する
-              </a>
-              <a
-                href="mailto:info@numphoto.com"
-                className="block text-xs text-base-content/45 hover:text-base-content transition-colors"
-              >
-                研修プログラムの詳細資料 →
-              </a>
-            </div>
+
           </div>
         </section>
 
