@@ -14,10 +14,13 @@ type TabId = (typeof TABS)[number]['id'];
 
 const COMPANY_INFO = [
   { label: '会社名', value: '株式会社ナムフォト' },
-  { label: '設立', value: '2016年5月' },
   { label: '代表取締役', value: '楢 侑子' },
-  { label: '事業内容', value: '写真心理学を用いた企業研修・組織開発、撮影業務' },
-  { label: '登録商標', value: '写真心理学®' },
+  { label: '所在地', value: '〒153-0063 東京都目黒区目黒 2-11-3 印刷工場1階' },
+  { label: '創立', value: '2016年5月13日' },
+  { label: '資本金', value: '300万円' },
+  { label: '主な事業内容', value: '① 写真撮影及び写真教室開催\n② 研修、セミナー、講演及びカウンセリングの実施\n③ 現代人の幸福、生活に関する研究、コンテンツ企画、開発\n④ イベントの企画、運営\n⑤ 雑貨の製造及び販売\n⑥ 全各号に付帯または関連する一切の業務' },
+  { label: 'インボイス登録番号', value: 'T7120001198278' },
+  { label: '取引先', value: 'TIS・NEC・京都リサーチパーク・コマニー・ベネッセ・コーポレーション・三井不動産「WORK STYLING」（アソボット、カイケツ）・TRI-AD（現：ウーブン・バイ・トヨタ）・日建設計・大阪府・山口県阿武町・大阪府大東市・Lコネクト（京都府ひきこもり者の就労支援施設）・株式会社コトラボ・株式会社東京ランドスケープ研究所・一般社団法人マネージング・ノンプロフィット・一般社団法人ソトノバ 他多数' },
 ] as const;
 
 const HISTORY_ITEMS = [
@@ -39,6 +42,14 @@ const AWARDS_ITEMS = [
 ] as const;
 
 const FAQ_ITEMS = [
+  {
+    q: '写真が「上手い」「下手」が、プログラムに関係するのでは？',
+    a: '関係しません。「上手い」「下手」という評価は一つのフレームです。写真心理学ではこうした評価を超えた手法で写真を分析します。',
+  },
+  {
+    q: '診断結果は、iPhoneや一眼レフなど、カメラ機種に依存するのでは？',
+    a: '全く影響がないわけではありませんが、それでも余りある価値観や概念化のパターン、思考癖が写真に表出されています。',
+  },
   {
     q: '一度に何名くらいで実施できますか？',
     a: '標準は、10名２時間のプログラムです。これまでの実績は、5名〜35名です。AI診断が可能になったので、これ以上の人数にも対応できるようになりました。',
@@ -329,16 +340,94 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* FAQ */}
-            <div className="border-t border-base-200 pt-16">
-              <h3 className="text-[10px] tracking-[0.4em] text-base-content/40 mb-10 uppercase font-sans">よくあるご質問</h3>
+          </div>
+        </section>
+
+        {/* ──────────────────── */}
+        {/* Section: 写真心理学診断とは */}
+        {/* ──────────────────── */}
+        <section className="py-24 px-6 md:px-12 lg:px-24 bg-base-200/30 border-b border-base-200">
+          <div className="max-w-6xl mx-auto">
+            <span className="text-[10px] tracking-[0.4em] text-base-content/40 block mb-5 uppercase font-sans">Diagnosis</span>
+            <h2 className="text-2xl md:text-3xl font-light mb-6 tracking-[0.05em]">写真心理学診断とは</h2>
+            <p className="text-sm md:text-base text-base-content/60 leading-[2.2] mb-16 max-w-2xl">
+              2000名2万3000枚の写真分析と、神経心理学や知覚認知心理学のロジックを素に開発。<br />
+              写真を14項目の定量診断によって解析しています。
+            </p>
+
+            {/* フロー図 */}
+            <div className="overflow-x-auto">
+              <div className="min-w-[560px] flex gap-4 items-stretch">
+
+                {/* 左側：2段 */}
+                <div className="flex flex-col gap-3 flex-1">
+
+                  {/* 私（外枠）＋ 3ステップ（内包） */}
+                  <div className="border border-base-300 bg-base-100 px-4 pt-4 pb-4">
+                    <p className="text-sm font-bold tracking-[0.2em] text-center mb-3">私</p>
+                    <div className="grid grid-cols-3 gap-2">
+                      {[
+                        { step: '1.知覚 認知', sub: '感覚受容器', quote: '「空が青い！」' },
+                        { step: '2.理解 判断', sub: '脳', quote: '「写真撮ろう」' },
+                        { step: '3.表現 実行', sub: '運動神経系', quote: 'シャッターを押す' },
+                      ].map((item) => (
+                        <div key={item.step} className="border border-base-300 bg-base-200 px-4 py-4 flex flex-col gap-3">
+                          <p className="text-[11px] text-base-content/50 tracking-wide">{item.step}</p>
+                          <p className="text-sm font-medium">{item.sub}</p>
+                          <p className="text-xs text-base-content/50">{item.quote}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 下向き矢印 */}
+                  <div className="flex justify-center text-base-content/30 text-lg leading-none">▼</div>
+
+                  {/* 写真 */}
+                  <div className="border border-base-300 bg-base-100 py-6 flex items-center justify-center">
+                    <span className="text-sm font-bold tracking-[0.2em]">写真</span>
+                  </div>
+                </div>
+
+                {/* 右向き矢印 */}
+                <div className="flex items-center text-base-content/30 text-lg shrink-0">▶</div>
+
+                {/* 右側：写真心理学診断 */}
+                <div className="border border-base-300 bg-base-100 px-7 py-6 flex flex-col justify-center gap-4 w-48 shrink-0">
+                  <p className="text-sm font-bold tracking-[0.2em] text-center">写真心理学<span className="align-super text-[8px]">®</span>診断</p>
+                  <div>
+                    <p className="text-sm font-bold leading-snug mb-4">
+                      定量分析<br />-14項目-
+                    </p>
+                    <div className="space-y-1.5 text-[11px] text-base-content/55">
+                      <p>WHY：撮影動機</p>
+                      <p>HOW：撮り方の特徴</p>
+                      <p>WHAT：被写体の特徴</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ──────────────── */}
+        {/* Section: よくあるご質問 */}
+        {/* ──────────────── */}
+        <section className="py-24 px-6 md:px-12 lg:px-24 border-b border-base-200">
+          <div className="max-w-6xl mx-auto">
+            <span className="text-[10px] tracking-[0.4em] text-base-content/40 block mb-5 uppercase font-sans">FAQ</span>
+            <h2 className="text-2xl md:text-3xl font-light mb-16 tracking-[0.05em]">よくあるご質問</h2>
+            <dl className="divide-y divide-base-200">
               {FAQ_ITEMS.map((item, i) => (
-                <div key={i} className="grid md:grid-cols-[2fr_3fr] gap-6 py-8 border-b border-base-200">
-                  <p className="text-sm font-medium text-base-content leading-[1.9]">Q. {item.q}</p>
-                  <p className="text-sm text-base-content/60 leading-[2.2]">{item.a}</p>
+                <div key={i} className="grid md:grid-cols-[2fr_3fr] gap-6 py-8">
+                  <dt className="text-sm font-medium text-base-content leading-[1.9]">Q. {item.q}</dt>
+                  <dd className="text-sm text-base-content/60 leading-[2.2]">{item.a}</dd>
                 </div>
               ))}
-            </div>
+            </dl>
           </div>
         </section>
 
@@ -346,7 +435,7 @@ export default function AboutPage() {
         {/* Section 3: 会社概要 */}
         {/* ─────────────── */}
         <section id="company" ref={companyRef} className="py-24 px-6 md:px-12 lg:px-24 border-b border-base-200">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <span className="text-[10px] tracking-[0.4em] text-base-content/40 block mb-5 uppercase font-sans">Company</span>
             <h2 className="text-2xl md:text-3xl font-light mb-16 tracking-[0.05em]">会社概要</h2>
             <dl className="divide-y divide-base-200">
@@ -355,7 +444,7 @@ export default function AboutPage() {
                   <dt className="text-xs tracking-[0.15em] text-base-content/45 font-sans font-medium pt-0.5 shrink-0">
                     {item.label}
                   </dt>
-                  <dd className="text-sm text-base-content/80 leading-[1.9]">{item.value}</dd>
+                  <dd className="text-sm text-base-content/80 leading-[1.9] whitespace-pre-line">{item.value}</dd>
                 </div>
               ))}
             </dl>
@@ -366,7 +455,7 @@ export default function AboutPage() {
         {/* Section 4: 沿革 */}
         {/* ──────────── */}
         <section id="history" ref={historyRef} className="py-24 px-6 md:px-12 lg:px-24 bg-base-200/30 border-b border-base-200">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <span className="text-[10px] tracking-[0.4em] text-base-content/40 block mb-5 uppercase font-sans">History</span>
             <h2 className="text-2xl md:text-3xl font-light mb-16 tracking-[0.05em]">沿革</h2>
             <div className="relative">

@@ -225,11 +225,11 @@ export default function NumPhoto10thFullPage() {
           {/* 右側：メニュー */}
           <nav className="hidden lg:flex items-center gap-4">
             {[
-              { name: '会社概要', href: '#about' },
+              { name: '会社紹介', href: '/about' },
               { name: 'サービス', href: '#service' },
               { name: '実績', href: '#cases' },
               { name: '連載', href: '#series' },
-              { name: '10th Anniversary', href: '#anniversary', highlight: true },
+              { name: '10th Anniversary', href: '#about', highlight: true },
             ].map((item) => (
               <div key={item.name} className="group nav-link-container px-4 py-2">
                 <div className="flash-layer"></div>
