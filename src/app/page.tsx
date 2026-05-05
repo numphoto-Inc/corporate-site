@@ -173,6 +173,19 @@ export default function NumPhoto10thFullPage() {
         }
       });
 
+      // CQ発達5段階 - レベルカードのスタガーアニメーション
+      gsap.fromTo('.js-cq-level',
+        { y: 30, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 0.7, ease: 'power3.out',
+          stagger: 0.1,
+          scrollTrigger: {
+            trigger: '.js-cq-level',
+            start: 'top 82%',
+          }
+        }
+      );
+
       // 10th 背景テキストのパララックス
       gsap.to(".p-anniversary__bg-text", {
         y: -100,
@@ -313,7 +326,7 @@ export default function NumPhoto10thFullPage() {
             </h3>
             <div className="js-reveal text-base-content/70 space-y-12 text-sm md:text-base leading-[2.4] text-left md:text-center italic max-w-2xl mx-auto">
               <p>株式会社ナムフォトは、10周年を迎えました。</p>
-              <p>私たちは「写真心理学」という独自のメソッドを通じて、<br className="hidden md:block" />言葉になる前の「心の解像度」を上げるサポートをしてきました。</p>
+              <p>私たちは「写真心理学」という独自のメソッドを通じて、<br className="hidden md:block" />言葉になる前の「心の解像度」を上げるサポートをしています。</p>
               <p className="font-bold text-base-content not-italic mt-16 text-lg tracking-[0.2em] border-t border-base-200 pt-12">
                 VISION: 写真の力で、アイが巡るセカイをつくろう。
               </p>
@@ -359,25 +372,25 @@ export default function NumPhoto10thFullPage() {
             </div>
 
             {/* 2カラム表 */}
-            <div className="js-reveal overflow-x-auto">
+            <div className="overflow-x-auto">
               <div className="min-w-[360px] space-y-3">
 
                 {/* パワーグループ (Level 4-5) */}
                 <div className="flex gap-[2px]">
-                  <div className="w-28 shrink-0 bg-[#FCFFD6] flex items-center justify-center px-3 py-6 rounded-sm">
+                  <div className="w-28 md:w-auto md:whitespace-nowrap shrink-0 bg-[#FCFFD6] flex items-center justify-center px-3 py-6 rounded-sm">
                     <p className="text-base font-bold text-stone-600 text-center leading-[1.9]">
-                      違い＝<br />パワー
+                      違い＝<br className="md:hidden" />パワー
                     </p>
                   </div>
                   <div className="flex-1 flex flex-col gap-[2px]">
                     {/* Level 5 */}
-                    <div className="bg-[#F4FF80] px-6 py-5">
+                    <div className="js-cq-level bg-[#F4FF80] px-6 py-5">
                       <p className="text-[10px] font-mono tracking-widest text-stone-500/70 mb-2">Level.5</p>
                       <p className="text-base font-bold text-stone-800 mb-2">違いとの共創</p>
                       <p className="text-sm text-stone-600 leading-[1.85]">対立や葛藤を当たり前とし、調整や協力に努める</p>
                     </div>
                     {/* Level 4 */}
-                    <div className="bg-[#FCFFD6] px-6 py-5">
+                    <div className="js-cq-level bg-[#FCFFD6] px-6 py-5">
                       <p className="text-[10px] font-mono tracking-widest text-stone-400/70 mb-2">Level.4</p>
                       <p className="text-base font-bold text-stone-700 mb-2">違いを相対化</p>
                       <p className="text-sm text-stone-500 leading-[1.85]">相手のロジック理解に努め、否定的な判断を保留</p>
@@ -387,26 +400,26 @@ export default function NumPhoto10thFullPage() {
 
                 {/* コストグループ (Level 1-3) */}
                 <div className="flex gap-[2px]">
-                  <div className="w-28 shrink-0 bg-[#e8eaed] flex items-center justify-center px-3 py-6 rounded-sm">
+                  <div className="w-28 md:w-auto md:whitespace-nowrap shrink-0 bg-[#e8eaed] flex items-center justify-center px-3 py-6 rounded-sm">
                     <p className="text-base font-bold text-stone-500 text-center leading-[1.9]">
-                      違い＝<br />コスト
+                      違い＝<br className="md:hidden" />コスト
                     </p>
                   </div>
                   <div className="flex-1 flex flex-col gap-[2px]">
                     {/* Level 3 */}
-                    <div className="bg-[#e8eaed] px-6 py-5">
+                    <div className="js-cq-level bg-[#e8eaed] px-6 py-5">
                       <p className="text-[10px] font-mono tracking-widest text-stone-400/70 mb-2">Level.3</p>
                       <p className="text-base font-bold text-stone-600 mb-2">違いの最小化</p>
                       <p className="text-sm text-stone-500 leading-[1.85]">&ldquo;共通点&rdquo;に着目し、対立を避ける</p>
                     </div>
                     {/* Level 2 */}
-                    <div className="bg-[#b0b8c4] px-6 py-5">
+                    <div className="js-cq-level bg-[#b0b8c4] px-6 py-5">
                       <p className="text-[10px] font-mono tracking-widest text-white/60 mb-2">Level.2</p>
                       <p className="text-base font-bold text-white mb-2">違いへの二極化</p>
                       <p className="text-sm text-white/80 leading-[1.85]">「私が正しい、相手は悪い」「私は間違ってて、相手が正しい」</p>
                     </div>
                     {/* Level 1 */}
-                    <div className="bg-[#7e8898] px-6 py-5">
+                    <div className="js-cq-level bg-[#7e8898] px-6 py-5">
                       <p className="text-[10px] font-mono tracking-widest text-white/60 mb-2">Level.1</p>
                       <p className="text-base font-bold text-white mb-2">違いへの無知無関心</p>
                       <p className="text-sm text-white/80 leading-[1.85]">自分と属性が違う人には興味がない</p>
@@ -431,17 +444,17 @@ export default function NumPhoto10thFullPage() {
             <div className="mb-24 js-reveal">
               <span className="text-[10px] tracking-[0.4em] text-base-content/40 block mb-4 uppercase font-sans">Process</span>
               <h2 className="text-2xl md:text-3xl font-light tracking-[0.2em]">
-                「違い」を力に変える <br className="md:hidden" />
-                <span className="font-medium">CQプロセスの4段階</span>
+                「違い」を力に変える、<br className="md:hidden" />
+                <span className="font-medium">写真心理学プログラムの4段階</span>
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-base-200 border border-base-200">
               {[
-                { step: '01', title: '内省', desc: '写真を撮ることで、自分でも気づかなかった無意識な関心を言語化します。' },
-                { step: '02', title: '開示', desc: '撮った写真を共有し、自分の「世界の捉え方」をフラットに提示します。' },
-                { step: '03', title: '対話', desc: '他者の写真を通じ、自分とは異なる視点や解釈の存在を心から尊重します。' },
-                { step: '04', title: '共創', desc: '多様な視点が混ざり合うことで、一人では到達できない新しいアイデアが生まれます。' },
+                { step: '01', title: '内省', desc: '正解のない問いに向き合いながら、多様な視点で自身をふり返ります。' },
+                { step: '02', title: 'アウトプット', desc: '社会に向き合い写真を撮ることで、自分の「世界の捉え方」を形にします。' },
+                { step: '03', title: '写真心理学×対話', desc: '写真分析をもとに、対話を実施。ものごとの解釈パターンを紐解きます。' },
+                { step: '04', title: 'ビジネスと接続', desc: '写真心理学の気づきを言語化し、ビジネスシーンでの活用に繋げます。' },
               ].map((item) => (
                 <div key={item.step} className="bg-base-100 pt-12 pb-20 px-8 group relative overflow-hidden transition-all duration-500 hover:bg-base-200/30">
                   <div className="absolute inset-0 bg-primary opacity-0 group-hover:animate-flash-shimmer pointer-events-none"></div>
@@ -463,7 +476,7 @@ export default function NumPhoto10thFullPage() {
             
             <div className="mt-16 text-center js-reveal">
               <p className="text-sm text-base-content/40 font-light italic font-sans">
-                ※CQ（Cultural Intelligence）: 多様な文化的背景において効果的に機能する能力
+                ※人数や時間に応じて、基本プログラムをカスタマイズします
               </p>
             </div>
           </div>
@@ -481,25 +494,34 @@ export default function NumPhoto10thFullPage() {
                 撮影者の価値観や創造性タイプを診断します。
               </p>
               <p className="text-sm text-base-content/60 leading-[2.4] mb-8">
-                もっと楽しい研修を実施したい...<br />
-                そんなチームや現場でも、アプリを使えば気軽に写真心理学を利用することができます。
+                「もっと楽しい研修を実施したい」「理論と体験のどちらも大事」<br />
+                そんなチームや現場でも、手軽に写真心理学を利用することができます。
               </p>
-              <ul className="text-sm text-base-content/70 space-y-2 leading-relaxed">
+              <ul className="text-sm text-base-content/70 space-y-2 leading-relaxed mb-10">
                 <li>・チームの1on1や懇親ツールとして</li>
                 <li>・研修の一部や、アイスブレイクとして</li>
               </ul>
+              <a
+                href="https://app.numphoto.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-primary text-primary-content text-sm font-bold tracking-[0.2em] px-10 py-4 rounded-full hover:opacity-80 transition-opacity"
+              >
+                無料診断を試す →
+              </a>
             </div>
 
             {/* スマホモックアップ */}
             <div className="flex justify-center md:justify-end js-reveal">
-              <div className="relative w-[210px] h-[420px] border-2 border-base-content rounded-[38px] bg-base-100 shadow-xl">
-                <div className="absolute top-4 left-1/2 -translate-x-1/2 w-14 h-[5px] bg-base-content rounded-full" />
-                <div className="absolute top-11 bottom-7 left-3 right-3 flex flex-col gap-2.5">
-                  <div className="flex-[2] bg-base-200/30 border border-base-200 rounded-xl flex items-center justify-center">
-                    <span className="text-[10px] text-base-content/20 italic font-sans">numphoto app</span>
-                  </div>
-                  <div className="h-7 bg-primary rounded-full" />
+              <div className="relative w-[240px] border-[3px] border-base-content rounded-[40px] bg-base-100 shadow-2xl overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-7 bg-base-100 z-10 flex items-center justify-center">
+                  <div className="w-16 h-[5px] bg-base-content/80 rounded-full mt-1" />
                 </div>
+                <img
+                  src="/app.png"
+                  alt="写真心理学AI診断アプリ"
+                  className="w-full h-auto object-cover pt-7"
+                />
               </div>
             </div>
           </div>
