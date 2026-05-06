@@ -480,41 +480,35 @@ export default function AboutPage() {
         </section>
 
         {/* ───── CTA ───── */}
-        <section className="py-24 px-6 md:px-12 lg:px-24 bg-base-200/30">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-4 md:gap-6">
+        <section className="border-t border-base-200">
+          <div className="grid md:grid-cols-2">
 
             {/* お問い合わせ */}
-            <a
-              href="/contact"
-              className="group border border-base-content p-8 md:p-10 flex flex-col justify-between gap-10 hover:bg-base-content hover:text-base-100 transition-colors duration-200"
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-sm tracking-[0.2em] font-medium">お問い合わせ</span>
-                <span className="group-hover:translate-x-1 transition-transform duration-200">→</span>
+            <a href="/contact" className="group relative overflow-hidden h-full border-b md:border-b-0 md:border-r border-base-200 p-10 md:p-14 lg:p-20 flex flex-col justify-between gap-12 min-h-[320px] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(26,26,26,0.09)] transition-[transform,box-shadow] duration-300 ease-out">
+              <div className="cta-fill-layer" />
+              <div className="relative z-10 flex items-start justify-between">
+                <p className="text-2xl md:text-3xl font-medium tracking-[0.04em]">お問い合わせ</p>
+                <span className="text-2xl mt-1">→</span>
               </div>
-              <div className="space-y-5">
-                <p className="text-2xl md:text-3xl font-light tracking-[0.04em]">無料で見積もり・相談する</p>
-                <p className="text-sm text-base-content/50 group-hover:text-base-100/60 leading-[2.0] transition-colors duration-200">
-                  親しみやすくニュートラルな視点が強みです。<br />
+              <div className="relative z-10 space-y-4">
+                <p className="text-xl md:text-2xl font-light tracking-[0.04em]">無料で見積もり・相談する</p>
+                <p className="text-base leading-[2.0] text-base-content/70">
                   チームや組織のご状況、課題などに応じて<br />無料でご相談・お見積りをいたします。
                 </p>
               </div>
             </a>
 
             {/* サービス紹介資料 */}
-            <a
-              href="/contact"
-              className="group border border-base-300 bg-base-100 p-8 md:p-10 flex flex-col justify-between gap-10 hover:border-base-content transition-colors duration-200"
-            >
-              <div className="flex items-center justify-between">
-                <span className="text-sm tracking-[0.2em] font-medium text-base-content/60 group-hover:text-base-content transition-colors duration-200">サービス紹介資料</span>
-                <span className="text-base-content/40 group-hover:text-base-content group-hover:translate-x-1 transition-all duration-200">→</span>
+            <a href="/serviceguide" className="group relative overflow-hidden h-full bg-base-200/30 p-10 md:p-14 lg:p-20 flex flex-col justify-between gap-12 min-h-[320px] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(26,26,26,0.09)] transition-[transform,box-shadow] duration-300 ease-out">
+              <div className="cta-fill-layer" />
+              <div className="relative z-10 flex items-start justify-between">
+                <p className="text-2xl md:text-3xl font-medium tracking-[0.04em]">サービス紹介資料</p>
+                <span className="text-2xl mt-1">→</span>
               </div>
-              <div className="space-y-5">
-                <p className="text-2xl md:text-3xl font-light tracking-[0.04em]">研修プログラムの詳細</p>
-                <p className="text-sm text-base-content/50 leading-[2.0]">
-                  写真心理学プログラムの詳細資料をご用意しています。<br />
-                  資料には心理学のフレームワークも<br />多数掲載しておりますのでご活用ください。
+              <div className="relative z-10 space-y-4">
+                <p className="text-xl md:text-2xl font-light tracking-[0.04em]">研修プログラムの詳細資料を請求する</p>
+                <p className="text-base leading-[2.0] text-base-content/70">
+                  写真心理学プログラムの詳細資料をご用意しています。<br />心理学のフレームワークも多数掲載しています。
                 </p>
               </div>
             </a>

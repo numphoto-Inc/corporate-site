@@ -746,7 +746,7 @@ export default function NumPhoto10thFullPage() {
 
             {/* サービス紹介資料 */}
             <div className="js-reveal h-full">
-              <a href="/contact" className="group relative overflow-hidden h-full bg-base-200/30 p-10 md:p-14 lg:p-20 flex flex-col justify-between gap-12 min-h-[320px] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(26,26,26,0.09)] transition-[transform,box-shadow] duration-300 ease-out">
+              <a href="/serviceguide" className="group relative overflow-hidden h-full bg-base-200/30 p-10 md:p-14 lg:p-20 flex flex-col justify-between gap-12 min-h-[320px] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(26,26,26,0.09)] transition-[transform,box-shadow] duration-300 ease-out">
                 <div className="cta-fill-layer" />
                 <div className="relative z-10 flex items-start justify-between">
                   <p className="text-2xl md:text-3xl font-medium tracking-[0.04em]">サービス紹介資料</p>
