@@ -1,2 +1,3 @@
-# 10th-anniversary-site
+# 10th-anniversary-site 
+-corporate-site
 ナムフォト10周年によるHPリニューアルプロジェクトです
