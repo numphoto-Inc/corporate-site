@@ -1,3 +1,2 @@
-# 10th-anniversary-site 
--corporate-site
+# Numphoto Corporate Site
 ナムフォト10周年によるHPリニューアルプロジェクトです
