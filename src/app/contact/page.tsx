@@ -9,6 +9,7 @@ async function submitContactForm(formData: FormData) {
     method: 'POST',
     body,
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    redirect: 'manual',
   });
   redirect('/contact/thanks');
 }

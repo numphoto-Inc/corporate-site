@@ -9,6 +9,7 @@ export async function submitServiceguideForm(formData: FormData) {
     method: 'POST',
     body,
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    redirect: 'manual',
   });
   redirect('/serviceguide/thanks');
 }
