@@ -1,21 +1,24 @@
 'use client';
 
 import Script from 'next/script';
+import { useRef } from 'react';
 
 const SITE_KEY = '6LcidtosAAAAAF-xUI1mcjF8MdD_wpivAvo03ZYJ';
 
 export function RecaptchaForm({
-  action,
+  ssgformUrl,
   className,
   children,
 }: {
-  action: (data: FormData) => Promise<void>;
+  ssgformUrl: string;
   className?: string;
   children: React.ReactNode;
 }) {
+  const formRef = useRef<HTMLFormElement>(null);
+  const tokenRef = useRef<HTMLInputElement>(null);
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.currentTarget;
 
     const token: string = await new Promise((resolve) => {
       (window as any).grecaptcha.ready(async () => {
@@ -24,15 +27,25 @@ export function RecaptchaForm({
       });
     });
 
-    const formData = new FormData(form);
-    formData.set('g-recaptcha-response', token);
-    await action(formData);
+    if (tokenRef.current) {
+      tokenRef.current.value = token;
+    }
+
+    // ネイティブsubmit（onSubmitを再発火させずssgform.comへPOST）
+    formRef.current?.submit();
   }
 
   return (
     <>
       <Script src={`https://www.google.com/recaptcha/api.js?render=${SITE_KEY}`} />
-      <form onSubmit={handleSubmit} className={className}>
+      <form
+        ref={formRef}
+        action={ssgformUrl}
+        method="POST"
+        onSubmit={handleSubmit}
+        className={className}
+      >
+        <input ref={tokenRef} type="hidden" name="g-recaptcha-response" defaultValue="" />
         {children}
       </form>
     </>

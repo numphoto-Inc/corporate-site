@@ -1,18 +1,4 @@
-import { redirect } from 'next/navigation';
 import { RecaptchaForm } from '../components/RecaptchaForm';
-
-async function submitContactForm(formData: FormData) {
-  'use server';
-  const body = new URLSearchParams();
-  formData.forEach((value, key) => body.append(key, value.toString()));
-  await fetch('https://ssgform.com/s/vqxS7p1i8Aoz', {
-    method: 'POST',
-    body,
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    redirect: 'manual',
-  });
-  redirect('/contact/thanks');
-}
 
 export default function ContactPage() {
   const inquiryTypes = ['企業研修', '撮影', 'その他'];
@@ -57,7 +43,7 @@ export default function ContactPage() {
         <section className="py-20 px-6 md:px-12 lg:px-24">
           <div className="max-w-2xl mx-auto">
             <RecaptchaForm
-              action={submitContactForm}
+              ssgformUrl="https://ssgform.com/s/vqxS7p1i8Aoz"
               className="space-y-12"
             >
 

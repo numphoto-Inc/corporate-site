@@ -1,6 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { submitServiceguideForm } from './actions';
 import { RecaptchaForm } from '../components/RecaptchaForm';
 
 const documentImages = [
@@ -103,7 +102,7 @@ export default function DownloadPage() {
               </h2>
 
               <RecaptchaForm
-                action={submitServiceguideForm}
+                ssgformUrl="https://ssgform.com/s/vqxS7p1i8Aoz"
                 className="space-y-10"
               >
                 <div className="space-y-2">
