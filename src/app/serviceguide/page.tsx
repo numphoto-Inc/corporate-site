@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { submitServiceguideForm } from './actions';
 
 const documentImages = [
   '/numphoto-service-guid.001.png',
@@ -101,8 +102,7 @@ export default function DownloadPage() {
               </h2>
 
               <form
-                action="https://ssgform.com/s/vqxS7p1i8Aoz"
-                method="POST"
+                action={submitServiceguideForm}
                 className="space-y-10"
               >
                 <div className="space-y-2">
