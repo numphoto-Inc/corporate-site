@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+/* ダークモードを完全に無効化し、ライトモードのみで表示 */
+:root,
+html {
+  color-scheme: light;
+}
+
 @theme {
   /* 游ゴシックを最優先に。MacとWindows両方の指定を入れます */
   --font-sans: "Yu Gothic", "YuGothic", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;

@@ -1,17 +1,3 @@
-import { redirect } from 'next/navigation';
-
-async function submitContactForm(formData: FormData) {
-  'use server';
-  const body = new URLSearchParams();
-  formData.forEach((value, key) => body.append(key, value.toString()));
-  await fetch('https://ssgform.com/s/vqxS7p1i8Aoz', {
-    method: 'POST',
-    body,
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-  });
-  redirect('/contact/thanks');
-}
-
 export default function ContactPage() {
   const inquiryTypes = ['企業研修', '撮影', 'その他'];
   const referrals = [
@@ -55,7 +41,8 @@ export default function ContactPage() {
         <section className="py-20 px-6 md:px-12 lg:px-24">
           <div className="max-w-2xl mx-auto">
             <form
-              action={submitContactForm}
+              action="https://ssgform.com/s/vqxS7p1i8Aoz"
+              method="POST"
               className="space-y-12"
             >
 
