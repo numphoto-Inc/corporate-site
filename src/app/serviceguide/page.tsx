@@ -102,7 +102,7 @@ export default function DownloadPage() {
               </h2>
 
               <RecaptchaForm
-                ssgformUrl="https://ssgform.com/s/vqxS7p1i8Aoz"
+                ssgformUrl="https://ssgform.com/s/yvE0LeJ28oMT"
                 className="space-y-10"
               >
                 <div className="space-y-2">
