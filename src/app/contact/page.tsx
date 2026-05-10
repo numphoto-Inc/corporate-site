@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-import Script from 'next/script';
+import { RecaptchaForm } from '../components/RecaptchaForm';
 
 async function submitContactForm(formData: FormData) {
   'use server';
@@ -33,7 +33,6 @@ export default function ContactPage() {
 
   return (
     <main className="pt-20 md:pt-24 text-base-content font-light leading-relaxed">
-      <Script src="https://www.google.com/recaptcha/api.js" />
 
         {/* Breadcrumb */}
         <div className="px-6 md:px-12 py-4 border-b border-base-200">
@@ -56,7 +55,7 @@ export default function ContactPage() {
         {/* Form */}
         <section className="py-20 px-6 md:px-12 lg:px-24">
           <div className="max-w-2xl mx-auto">
-            <form
+            <RecaptchaForm
               action={submitContactForm}
               className="space-y-12"
             >
@@ -168,10 +167,6 @@ export default function ContactPage() {
               </fieldset>
 
               <div className="border-t border-base-200 pt-10">
-                <div
-                  className="g-recaptcha mb-6"
-                  data-sitekey="6LcidtosAAAAAF-xUI1mcjF8MdD_wpivAvo03ZYJ"
-                />
                 <div className="group nav-link-container inline-block w-full sm:w-auto border border-base-content">
                   <div className="submit-flash-layer" />
                   <button
@@ -189,7 +184,7 @@ export default function ContactPage() {
                 </p>
               </div>
 
-            </form>
+            </RecaptchaForm>
           </div>
         </section>
 

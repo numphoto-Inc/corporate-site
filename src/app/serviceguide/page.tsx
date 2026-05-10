@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { submitServiceguideForm } from './actions';
-import Script from 'next/script';
+import { RecaptchaForm } from '../components/RecaptchaForm';
 
 const documentImages = [
   '/numphoto-service-guid.001.png',
@@ -58,7 +58,6 @@ export default function DownloadPage() {
 
   return (
     <main className="pt-24 md:pt-32 pb-20">
-      <Script src="https://www.google.com/recaptcha/api.js" />
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
 
@@ -103,7 +102,7 @@ export default function DownloadPage() {
                 写真心理学を用いた研修サービスの紹介
               </h2>
 
-              <form
+              <RecaptchaForm
                 action={submitServiceguideForm}
                 className="space-y-10"
               >
@@ -143,10 +142,6 @@ export default function DownloadPage() {
                 </fieldset>
 
                 <div className="pt-10">
-                  <div
-                    className="g-recaptcha mb-6"
-                    data-sitekey="6LcidtosAAAAAF-xUI1mcjF8MdD_wpivAvo03ZYJ"
-                  />
                   <div className="group nav-link-container inline-block w-full border border-base-content bg-white overflow-hidden relative">
                     <button
                       type="submit"
@@ -161,7 +156,7 @@ export default function DownloadPage() {
                     個人情報は適切に管理し、弊社のサービス案内にのみ利用させていただきます。
                   </p>
                 </div>
-              </form>
+              </RecaptchaForm>
             </div>
           </div>
         </div>
