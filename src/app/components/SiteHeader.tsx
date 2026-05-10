@@ -60,24 +60,21 @@ export default function SiteHeader() {
             </div>
           </nav>
           <button
-            className="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] text-base-content/70"
+            className="lg:hidden flex flex-col justify-center items-center w-10 h-10 text-base-content/70"
+            style={{ gap: '5px' }}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label={menuOpen ? 'メニューを閉じる' : 'メニューを開く'}
           >
             <span
-              className={`block w-6 h-px bg-current transition-all duration-300 origin-center ${
-                menuOpen ? 'translate-y-[6px] rotate-45' : ''
-              }`}
+              className="block w-6 h-px bg-current transition-all duration-300 origin-center"
+              style={menuOpen ? { transform: 'translateY(5px) rotate(45deg)' } : {}}
             />
             <span
-              className={`block w-6 h-px bg-current transition-all duration-300 ${
-                menuOpen ? 'opacity-0' : ''
-              }`}
+              className={`block w-6 h-px bg-current transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`}
             />
             <span
-              className={`block w-6 h-px bg-current transition-all duration-300 origin-center ${
-                menuOpen ? '-translate-y-[6px] -rotate-45' : ''
-              }`}
+              className="block w-6 h-px bg-current transition-all duration-300 origin-center"
+              style={menuOpen ? { transform: 'translateY(-5px) rotate(-45deg)' } : {}}
             />
           </button>
         </div>
