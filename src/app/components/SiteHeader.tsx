@@ -7,8 +7,11 @@ const navItems: { name: string; href: string; highlight?: boolean }[] = [
   { name: 'サービス', href: '/#service' },
   { name: '実績', href: '/#cases' },
   { name: '連載', href: '/#series' },
-  { name: '10th Anniversary', href: '/#about', highlight: true },
 ];
+
+// 追加ボタン（外部のGoogleフォーム）
+const RELOCLUB_URL = 'https://forms.gle/EYePtCLkAjghfxBo6';
+const RELOCLUB_LABEL = 'リロクラブ申込み';
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -50,6 +53,17 @@ export default function SiteHeader() {
               </div>
             ))}
             <div className="group nav-link-container ml-4 border border-base-content">
+              <div className="submit-flash-layer" />
+              <a
+                href={RELOCLUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative z-10 px-6 py-2.5 text-[10px] tracking-[0.2em] font-bold block whitespace-nowrap group-hover:bg-primary"
+              >
+                <span className="submit-btn-label">{RELOCLUB_LABEL}</span>
+              </a>
+            </div>
+            <div className="group nav-link-container border border-base-content">
               <div className="submit-flash-layer" />
               <a
                 href="/contact"
@@ -108,9 +122,18 @@ export default function SiteHeader() {
             </a>
           ))}
           <a
+            href={RELOCLUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMenuOpen(false)}
+            className="mt-8 px-12 py-3 border border-base-content text-xs tracking-[0.25em] font-bold hover:bg-base-content hover:text-base-100 transition-colors"
+          >
+            {RELOCLUB_LABEL}
+          </a>
+          <a
             href="/contact"
             onClick={() => setMenuOpen(false)}
-            className="mt-8 mb-10 px-12 py-3 border border-base-content text-xs tracking-[0.25em] font-bold hover:bg-base-content hover:text-base-100 transition-colors"
+            className="mt-4 mb-10 px-12 py-3 border border-base-content text-xs tracking-[0.25em] font-bold hover:bg-base-content hover:text-base-100 transition-colors"
           >
             お問い合わせ
           </a>
